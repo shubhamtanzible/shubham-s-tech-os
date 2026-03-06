@@ -3,13 +3,14 @@ import { motion } from "framer-motion";
 import { Linkedin, Github, Mail, ChevronDown } from "lucide-react";
 
 const DRIVE_LINK =
-  "https://drive.google.com/file/d/12oySRTQqykP3eprBKg4mTb01N_Rm7UtL/view?usp=sharing";
+  "https://drive.google.com/file/d/1wHOeNS1vT7AtVzN5f0Uf-47sndqSeYiS/view?usp=sharing";
 const LINKEDIN = "https://www.linkedin.com/in/shubhampathak1/";
 
 const titles = [
-  "Full-Stack Developer",
+  "Software Developer",
   "AI Integration Engineer",
-  "MERN Stack Specialist",
+  "Full-Stack Developer",
+  "MERN Stack Developer",
   "Building what's next",
 ];
 

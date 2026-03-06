@@ -10,7 +10,7 @@ const docs = [
     title: "Resume / CV",
     desc: "Full experience, skills & project history",
     cta: "Open Resume →",
-    href: DRIVE_LINK,
+    href: "https://drive.google.com/file/d/1wHOeNS1vT7AtVzN5f0Uf-47sndqSeYiS/view?usp=sharing",
   },
   {
     icon: TestTube,
@@ -74,6 +74,46 @@ const DocumentsSection = () => {
         </div>
 
         {/* LeetCode */}
+        {/* <motion.a
+          href="https://leetcode.com/rajp9693759948"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          whileHover={{ y: -4, boxShadow: "0 0 20px rgba(0,212,255,0.15)" }}
+          className="glass-card p-6 flex items-center gap-4 transition-all"
+        >
+          <Code size={24} className="text-primary" />
+          <div>
+            <h3 className="font-heading text-lg font-semibold text-foreground">
+              Linkedin Profile
+            </h3>
+            <p className="text-muted-foreground text-sm font-body">
+              leetcode.com/rajp9693759948
+            </p>
+          </div>
+        </motion.a>
+        <motion.a
+          href="https://leetcode.com/rajp9693759948"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          whileHover={{ y: -4, boxShadow: "0 0 20px rgba(0,212,255,0.15)" }}
+          className="glass-card p-6 flex items-center gap-4 transition-all"
+        >
+          <Code size={24} className="text-primary" />
+          <div>
+            <h3 className="font-heading text-lg font-semibold text-foreground">
+              💻 LeetCode Profile
+            </h3>
+            <p className="text-muted-foreground text-sm font-body">
+              leetcode.com/rajp9693759948
+            </p>
+          </div>
+        </motion.a> */}
         <motion.a
           href="https://leetcode.com/rajp9693759948"
           target="_blank"
