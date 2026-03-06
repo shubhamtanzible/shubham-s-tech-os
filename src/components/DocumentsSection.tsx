@@ -1,27 +1,29 @@
 import { motion } from "framer-motion";
 import { FileText, TestTube, ClipboardList, Code } from "lucide-react";
 
+const DRIVE_LINK = "https://drive.google.com/drive/folders/1Zz2MRHZvY0XeFsM_mG0h7nQFaXV4Em7V";
+
 const docs = [
   {
     icon: FileText,
     title: "Resume / CV",
     desc: "Full experience, skills & project history",
     cta: "Open Resume →",
-    href: "#",
+    href: DRIVE_LINK,
   },
   {
     icon: TestTube,
     title: "Test Cases & QA Docs",
     desc: "Functional & edge case test suites from real projects",
     cta: "View Folder →",
-    href: "#",
+    href: DRIVE_LINK,
   },
   {
     icon: ClipboardList,
     title: "Project Docs & PRDs",
     desc: "Technical specs, requirement docs & API docs",
     cta: "View Folder →",
-    href: "#",
+    href: DRIVE_LINK,
   },
 ];
 

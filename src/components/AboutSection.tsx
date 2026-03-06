@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 const stats = [
   { value: 1.5, label: "Years Experience", suffix: "+" },
@@ -72,13 +73,15 @@ const AboutSection = () => {
             <div className="relative levitate">
               <div className="w-64 h-64 sm:w-72 sm:h-72 rounded-2xl bg-muted/30 border border-primary/20 overflow-hidden relative">
                 {/* Corner brackets */}
-                <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary" />
-                <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-primary" />
-                <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary" />
-                <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary" />
-                <div className="w-full h-full flex items-center justify-center text-6xl font-heading font-bold text-primary/30">
-                  SP
-                </div>
+                <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary z-10" />
+                <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-primary z-10" />
+                <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary z-10" />
+                <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary z-10" />
+                <img
+                  src={profilePhoto}
+                  alt="Shubham Pathak"
+                  className="w-full h-full object-cover"
+                />
               </div>
               {/* Glow ring */}
               <div className="absolute inset-0 rounded-2xl shadow-[0_0_40px_hsl(190,100%,50%,0.15)] pointer-events-none" />

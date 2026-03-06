@@ -1,12 +1,34 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+import ProjectModal, { type ProjectData } from "./ProjectModal";
 
-const projects = [
+const DRIVE_LINK = "https://drive.google.com/drive/folders/1Zz2MRHZvY0XeFsM_mG0h7nQFaXV4Em7V";
+
+const projects: ProjectData[] = [
   {
     tag: "E-Commerce · Next.js",
     tagColor: "primary",
     title: "Print On Demand",
     desc: "Custom apparel commerce platform — design upload/preview flows, live mockups, variant selection, order tracking, vendor integrations & dashboard widgets.",
     skills: ["Next.js", "Node.js", "REST APIs", "MongoDB", "Code Splitting"],
+    fullDescription:
+      "A full-featured custom apparel e-commerce platform enabling users to upload their own designs, preview them on products in real-time with live mockups, select variants (size, color, material), and track orders end-to-end. The platform includes vendor management dashboards, analytics widgets, and integrates with third-party printing services for seamless order fulfillment.",
+    features: [
+      "Design upload & real-time product preview with live mockups",
+      "Variant selection system (size, color, material) with dynamic pricing",
+      "Order tracking with status updates and notification system",
+      "Vendor integration dashboard with analytics widgets",
+      "Code-split architecture for optimized loading performance",
+      "Responsive UI built from Figma designs with pixel-perfect accuracy",
+    ],
+    challenges: [
+      "Optimized large image processing on the client using canvas APIs and lazy loading",
+      "Implemented complex state management for real-time mockup previews across variants",
+      "Built a scalable order pipeline with webhook-based vendor notifications",
+      "Achieved 40%+ improvement in page load via code splitting and dynamic imports",
+    ],
+    siteLink: DRIVE_LINK,
+    driveLink: DRIVE_LINK,
   },
   {
     tag: "AI · SaaS · Coaching",
@@ -14,6 +36,24 @@ const projects = [
     title: "CoociCoach",
     desc: "AI-enhanced coaching & video analysis platform with LLM-based session insights, drill tracking, video previews, Redux global state & role-based routing.",
     skills: ["React", "Redux Toolkit", "LLM APIs", "OpenAI", "REST APIs", "RBAC"],
+    fullDescription:
+      "An AI-powered coaching and video analysis SaaS platform designed for sports coaches and athletes. The platform leverages LLM APIs to generate session insights, analyze performance trends, and provide AI-driven drill recommendations. Features include video upload & preview, drill tracking dashboards, Redux-powered global state, and role-based access control for coaches, athletes, and admins.",
+    features: [
+      "AI-powered session analysis using OpenAI LLM APIs for coaching insights",
+      "Video upload, preview, and annotation system for performance review",
+      "Drill tracking dashboard with progress analytics and trend charts",
+      "Redux Toolkit global state management for complex data flows",
+      "Role-based routing and access control (Coach / Athlete / Admin)",
+      "Real-time notifications for session updates and AI-generated reports",
+    ],
+    challenges: [
+      "Designed iterative prompt engineering pipeline to improve LLM output quality by 35%",
+      "Handled large video file uploads with chunked processing and progress indicators",
+      "Built role-based routing with protected routes and permission-aware UI rendering",
+      "Optimized Redux store structure for minimal re-renders across deeply nested components",
+    ],
+    siteLink: DRIVE_LINK,
+    driveLink: DRIVE_LINK,
   },
   {
     tag: "B2B · Hotel Ops",
@@ -21,6 +61,24 @@ const projects = [
     title: "KnectHotel",
     desc: "Full hotel management suite — onboarding, room/facility management, RBAC, coupons, real-time chat (Socket.IO), webhook notifications & complex form validation.",
     skills: ["React Hook Form", "Zod", "Socket.IO", "JWT", "RBAC", "Webhooks"],
+    fullDescription:
+      "A comprehensive B2B hotel management platform covering the entire operations lifecycle — from hotel onboarding and room/facility management to coupon systems, real-time guest-staff chat via Socket.IO, webhook-based notifications, and complex multi-step form validation. The system supports multiple user roles with granular permissions and JWT-secured API endpoints.",
+    features: [
+      "Multi-step hotel onboarding flow with complex form validation (React Hook Form + Zod)",
+      "Room & facility management with availability calendars and pricing rules",
+      "Real-time chat between guests and staff using Socket.IO",
+      "Coupon and promotion management system with usage tracking",
+      "Webhook-based notification pipeline for booking events and alerts",
+      "RBAC with granular permissions for Admin, Manager, Staff, and Guest roles",
+    ],
+    challenges: [
+      "Built complex multi-step forms with cross-field validation and conditional logic using Zod schemas",
+      "Implemented real-time bidirectional chat with typing indicators and message persistence",
+      "Designed webhook infrastructure for reliable event delivery with retry mechanisms",
+      "Handled concurrent booking conflicts with optimistic locking and real-time UI updates",
+    ],
+    siteLink: DRIVE_LINK,
+    driveLink: DRIVE_LINK,
   },
   {
     tag: "E-Commerce · AI Search",
@@ -28,10 +86,30 @@ const projects = [
     title: "Naturally Good",
     desc: "E-commerce storefront with AI-powered product search & recommendations using LLM prompt-driven logic, cart/checkout, order tracking & SEO optimization.",
     skills: ["Next.js", "OpenAI API", "Prompt Engineering", "Node.js", "MongoDB", "SEO"],
+    fullDescription:
+      "A modern e-commerce storefront featuring AI-powered product search and personalized recommendations using LLM prompt-driven logic. The platform includes a full cart/checkout flow, order tracking, and comprehensive SEO optimization with meta tags, sitemaps, and structured data. The AI search understands natural language queries and maps them to relevant products using prompt engineering techniques.",
+    features: [
+      "AI-powered natural language product search using OpenAI API",
+      "Personalized product recommendations with LLM prompt-driven logic",
+      "Full cart management and multi-step checkout flow",
+      "Order tracking with status updates and email notifications",
+      "Comprehensive SEO: meta tags, sitemaps, JSON-LD structured data",
+      "Server-side rendering with Next.js for optimal Core Web Vitals",
+    ],
+    challenges: [
+      "Engineered prompts to accurately map natural language queries to product attributes",
+      "Built recommendation engine with contextual awareness of user browsing history",
+      "Optimized MongoDB aggregation pipelines for fast product filtering and search",
+      "Achieved 95+ Lighthouse SEO score with SSR, meta tags, and structured data",
+    ],
+    siteLink: DRIVE_LINK,
+    driveLink: DRIVE_LINK,
   },
 ];
 
 const ProjectsSection = () => {
+  const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
+
   return (
     <section id="projects" className="relative py-24 px-6 z-10">
       <div className="container mx-auto max-w-6xl">
@@ -59,7 +137,8 @@ const ProjectsSection = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
               whileHover={{ y: -8, boxShadow: "0 0 30px rgba(0,212,255,0.15)" }}
-              className="glass-card p-6 sm:p-8 group transition-all duration-300"
+              className="glass-card p-6 sm:p-8 group transition-all duration-300 cursor-pointer"
+              onClick={() => setSelectedProject(project)}
             >
               <span
                 className={`inline-block px-3 py-1 text-xs font-body rounded-full mb-4 ${
@@ -90,12 +169,24 @@ const ProjectsSection = () => {
               </div>
 
               <div className="flex gap-3">
-                <button className="px-4 py-2 text-sm font-body rounded-lg bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedProject(project);
+                  }}
+                  className="px-4 py-2 text-sm font-body rounded-lg bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors"
+                >
                   View Project →
                 </button>
-                <button className="px-4 py-2 text-sm font-body rounded-lg border border-secondary/30 text-secondary hover:bg-secondary/10 transition-colors">
+                <a
+                  href={DRIVE_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="px-4 py-2 text-sm font-body rounded-lg border border-secondary/30 text-secondary hover:bg-secondary/10 transition-colors"
+                >
                   View Docs →
-                </button>
+                </a>
               </div>
             </motion.div>
           ))}
@@ -112,7 +203,7 @@ const ProjectsSection = () => {
             📂 All project docs, test cases & requirement specs
           </p>
           <a
-            href="#"
+            href={DRIVE_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-2 rounded-lg bg-primary text-primary-foreground font-body text-sm font-semibold glow-cyan hover:scale-105 transition-transform"
@@ -121,6 +212,8 @@ const ProjectsSection = () => {
           </a>
         </motion.div>
       </div>
+
+      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </section>
   );
 };
