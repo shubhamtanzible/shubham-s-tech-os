@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
+const COMPANY_LOGO = "/projects/logo/logo1.png";
+const COMPANY_LINK = "https://techavtar.com"; // change if needed
 const bullets = [
   {
     icon: "🤖",
@@ -35,7 +37,15 @@ const bullets = [
   },
 ];
 
-const techTags = ["Next.js", "Node.js", "MongoDB", "OpenAI API", "JWT", "Redux", "TypeScript"];
+const techTags = [
+  "Next.js",
+  "Node.js",
+  "MongoDB",
+  "OpenAI API",
+  "JWT",
+  "Redux",
+  "TypeScript",
+];
 
 const ExperienceSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -48,9 +58,7 @@ const ExperienceSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-primary text-sm font-body uppercase tracking-widest mb-3"
-        >
-          // EXPERIENCE
-        </motion.p>
+        ></motion.p>
 
         <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-12">
           Work Experience
@@ -78,16 +86,45 @@ const ExperienceSection = () => {
               <div className="w-2 h-2 rounded-full bg-primary" />
             </div>
 
-            <h3 className="font-heading text-xl font-bold text-foreground">
+            {/* <h3 className="font-heading text-xl font-bold text-foreground">
               Synccipher Innovations Pvt Ltd (TechAvtar)
-            </h3>
-            <p className="text-muted-foreground text-sm font-body mt-1">
-              Software Developer · Full-time · Bangalore, India · Jul 2024 – Jan 2026
-            </p>
+            </h3> */}
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h3 className="font-heading text-xl font-bold text-foreground">
+                  Synccipher Innovations Pvt Ltd (TechAvtar)
+                </h3>
+                <p className="text-muted-foreground text-sm font-body mt-1">
+                  Software Developer · Full-time · Bangalore, India · Jul 2024 –
+                  Jan 2026
+                </p>
+              </div>
+
+              <a
+                href={COMPANY_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 group"
+                title="Open company website"
+                onClick={(e) => e.stopPropagation()} // prevents weird toggles if you add click on parent later
+              >
+                <div className="w-12 h-12 rounded-xl bg-muted/30 border border-primary/15 overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <img
+                    src={COMPANY_LOGO}
+                    alt="TechAvtar"
+                    className="w-full h-full object-contain p-2"
+                    loading="lazy"
+                  />
+                </div>
+              </a>
+            </div>
 
             <div className="mt-6 space-y-2">
               {bullets.map((b, i) => (
-                <div key={i} className="border border-primary/10 rounded-lg overflow-hidden">
+                <div
+                  key={i}
+                  className="border border-primary/10 rounded-lg overflow-hidden"
+                >
                   <button
                     onClick={() => setOpenIndex(openIndex === i ? null : i)}
                     className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-primary/5 transition-colors"
@@ -108,7 +145,9 @@ const ExperienceSection = () => {
                       animate={{ height: "auto", opacity: 1 }}
                       className="px-4 pb-3"
                     >
-                      <p className="text-muted-foreground text-sm font-body">{b.desc}</p>
+                      <p className="text-muted-foreground text-sm font-body">
+                        {b.desc}
+                      </p>
                     </motion.div>
                   )}
                 </div>

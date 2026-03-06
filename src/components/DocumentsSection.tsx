@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { FileText, TestTube, ClipboardList, Code } from "lucide-react";
 
-const DRIVE_LINK = "https://drive.google.com/drive/folders/1Zz2MRHZvY0XeFsM_mG0h7nQFaXV4Em7V";
+const DRIVE_LINK =
+  "https://drive.google.com/drive/folders/1Zz2MRHZvY0XeFsM_mG0h7nQFaXV4Em7V";
 
 const docs = [
   {
@@ -36,9 +37,7 @@ const DocumentsSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-primary text-sm font-body uppercase tracking-widest mb-3"
-        >
-          // DOCUMENTS
-        </motion.p>
+        ></motion.p>
         <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-2">
           Documents & Links
         </h2>
@@ -64,7 +63,9 @@ const DocumentsSection = () => {
               <h3 className="font-heading text-lg font-semibold text-foreground mb-2">
                 {doc.title}
               </h3>
-              <p className="text-muted-foreground text-sm font-body mb-4">{doc.desc}</p>
+              <p className="text-muted-foreground text-sm font-body mb-4">
+                {doc.desc}
+              </p>
               <span className="text-primary text-sm font-body font-semibold group-hover:underline">
                 {doc.cta}
               </span>
@@ -85,8 +86,12 @@ const DocumentsSection = () => {
         >
           <Code size={24} className="text-primary" />
           <div>
-            <h3 className="font-heading text-lg font-semibold text-foreground">💻 LeetCode Profile</h3>
-            <p className="text-muted-foreground text-sm font-body">leetcode.com/rajp9693759948</p>
+            <h3 className="font-heading text-lg font-semibold text-foreground">
+              💻 LeetCode Profile
+            </h3>
+            <p className="text-muted-foreground text-sm font-body">
+              leetcode.com/rajp9693759948
+            </p>
           </div>
         </motion.a>
       </div>
