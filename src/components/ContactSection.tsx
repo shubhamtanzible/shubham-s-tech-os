@@ -2,21 +2,29 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Mail, Phone, Linkedin, Github, Code, Send } from "lucide-react";
 
+const LINKEDIN = "https://www.linkedin.com/in/shubhampathak1/";
+
 const contacts = [
   { icon: Mail, label: "rajp9693759948@gmail.com", href: "mailto:rajp9693759948@gmail.com" },
   { icon: Phone, label: "+91-9693759948", href: "tel:+919693759948" },
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/in/shubham-pathak9693759948" },
+  { icon: Linkedin, label: "LinkedIn", href: LINKEDIN },
   { icon: Github, label: "GitHub", href: "https://github.com/Shubhamp9693" },
   { icon: Code, label: "LeetCode", href: "https://leetcode.com/rajp9693759948" },
 ];
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [sent, setSent] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:rajp9693759948@gmail.com?subject=Contact from ${formData.name}&body=${formData.message}%0A%0AFrom: ${formData.email}`;
-    window.open(mailtoLink);
+    // Construct LinkedIn message URL with prefilled message
+    const messageText = `Hi Shubham! My name is ${formData.name} (${formData.email}). ${formData.message}`;
+    const linkedinMessageUrl = `https://www.linkedin.com/messaging/compose/?to=shubhampathak1&body=${encodeURIComponent(messageText)}`;
+    window.open(linkedinMessageUrl, "_blank");
+    setSent(true);
+    setTimeout(() => setSent(false), 3000);
+    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
@@ -74,8 +82,13 @@ const ContactSection = () => {
               type="submit"
               className="w-full px-6 py-3 rounded-lg bg-primary text-primary-foreground font-body font-semibold glow-cyan hover:scale-[1.02] transition-transform flex items-center justify-center gap-2"
             >
-              Send Message <Send size={16} />
+              {sent ? "✓ Opening LinkedIn..." : (
+                <>Send via LinkedIn <Send size={16} /></>
+              )}
             </button>
+            <p className="text-muted-foreground text-xs font-body text-center">
+              This will open LinkedIn messaging with your message pre-filled
+            </p>
           </motion.form>
 
           {/* Contact cards */}

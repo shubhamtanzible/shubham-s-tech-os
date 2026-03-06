@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Linkedin, Github, Mail, ChevronDown } from "lucide-react";
 
+const DRIVE_LINK = "https://drive.google.com/drive/folders/1Zz2MRHZvY0XeFsM_mG0h7nQFaXV4Em7V";
+const LINKEDIN = "https://www.linkedin.com/in/shubhampathak1/";
+
 const titles = [
   "Full-Stack Developer",
   "AI Integration Engineer",
@@ -83,7 +86,7 @@ const HeroSection = () => {
             View My Work
           </a>
           <a
-            href="#"
+            href={DRIVE_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-3 rounded-lg border border-primary text-primary font-body font-semibold hover:bg-primary/10 transition-all hover:scale-105"
@@ -112,7 +115,7 @@ const HeroSection = () => {
         className="absolute bottom-8 right-6 sm:right-10 flex items-center gap-4 z-10"
       >
         {[
-          { icon: Linkedin, href: "https://linkedin.com/in/shubham-pathak9693759948" },
+          { icon: Linkedin, href: LINKEDIN },
           { icon: Github, href: "https://github.com/Shubhamp9693" },
           { icon: Mail, href: "mailto:rajp9693759948@gmail.com" },
         ].map(({ icon: Icon, href }, i) => (
