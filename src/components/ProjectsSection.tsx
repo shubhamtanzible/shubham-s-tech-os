@@ -492,7 +492,7 @@ const ProjectsSection = () => {
         </div>
 
         {/* Drive banner */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -509,7 +509,7 @@ const ProjectsSection = () => {
           >
             Open Google Drive Folder →
           </a>
-        </motion.div>
+        </motion.div> */}
       </div>
 
       <ProjectModal
