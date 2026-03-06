@@ -5,19 +5,43 @@ const skillGroups = [
     icon: "🧠",
     label: "AI & LLM",
     color: "accent",
-    skills: ["OpenAI API", "Prompt Engineering", "LLM Integration", "RAG Concepts", "AI Workflow Automation", "Chatbot Development"],
+    skills: [
+      "OpenAI API",
+      "Prompt Engineering",
+      "LLM Integration",
+      "RAG Concepts",
+      "AI Workflow Automation",
+      "Chatbot Development",
+    ],
   },
   {
     icon: "⚛️",
     label: "Frontend",
     color: "primary",
-    skills: ["React", "Next.js", "Redux Toolkit", "Tailwind CSS", "Bootstrap", "HTML5", "CSS3", "TypeScript"],
+    skills: [
+      "React",
+      "Next.js",
+      "Redux Toolkit",
+      "Tailwind CSS",
+      "Bootstrap",
+      "HTML5",
+      "CSS3",
+      "TypeScript",
+    ],
   },
   {
     icon: "🔧",
     label: "Backend",
     color: "primary",
-    skills: ["Node.js", "Express.js", "REST APIs", "JWT", "RBAC", "Zod Validation", "Socket.IO"],
+    skills: [
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "JWT",
+      "RBAC",
+      "Zod Validation",
+      "Socket.IO",
+    ],
   },
   {
     icon: "🗄️",
@@ -29,7 +53,16 @@ const skillGroups = [
     icon: "🛠️",
     label: "DevOps & Tools",
     color: "primary",
-    skills: ["Git", "GitHub", "CI/CD", "Vite", "Webpack", "ESLint", "Prettier", "Code Reviews"],
+    skills: [
+      "Git",
+      "GitHub",
+      "CI/CD",
+      "Vite",
+      "Webpack",
+      "ESLint",
+      "Prettier",
+      "Code Reviews",
+    ],
   },
 ];
 
@@ -52,9 +85,7 @@ const SkillsSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-primary text-sm font-body uppercase tracking-widest mb-3"
-        >
-          // SKILLS
-        </motion.p>
+        ></motion.p>
         <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-12">
           Tech Stack
         </h2>

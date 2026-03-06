@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Linkedin, Github, Mail, ChevronDown } from "lucide-react";
 
-const DRIVE_LINK = "https://drive.google.com/drive/folders/1Zz2MRHZvY0XeFsM_mG0h7nQFaXV4Em7V";
+const DRIVE_LINK =
+  "https://drive.google.com/file/d/12oySRTQqykP3eprBKg4mTb01N_Rm7UtL/view?usp=sharing";
 const LINKEDIN = "https://www.linkedin.com/in/shubhampathak1/";
 
 const titles = [
@@ -36,13 +37,16 @@ const HeroSection = () => {
           }
         }
       },
-      deleting ? 30 : 60
+      deleting ? 30 : 60,
     );
     return () => clearTimeout(timeout);
   }, [charIndex, deleting, titleIndex]);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center px-6">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center px-6"
+    >
       <div className="container mx-auto max-w-5xl text-center relative z-10">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -69,8 +73,9 @@ const HeroSection = () => {
           transition={{ delay: 1 }}
           className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto mb-10 font-body"
         >
-          1.5+ years shipping production-grade web apps. I build fast, secure, and intelligent
-          products — from pixel-perfect UIs to LLM-powered backends.
+          1.5+ years shipping production-grade web apps. I build fast, secure,
+          and intelligent products — from pixel-perfect UIs to LLM-powered
+          backends.
         </motion.p>
 
         <motion.div

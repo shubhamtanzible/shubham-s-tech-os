@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import profilePhoto from "@/assets/profile-photo.jpg";
+import profilePhoto from "@/assets/profile-photo.png";
 
 const stats = [
   { value: 1.5, label: "Years Experience", suffix: "+" },
@@ -9,7 +9,13 @@ const stats = [
   { value: null, label: "Lines of Code", suffix: "", display: "∞" },
 ];
 
-const CountUp = ({ target, suffix }: { target: number | null; suffix: string }) => {
+const CountUp = ({
+  target,
+  suffix,
+}: {
+  target: number | null;
+  suffix: string;
+}) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
@@ -34,16 +40,25 @@ const CountUp = ({ target, suffix }: { target: number | null; suffix: string }) 
           tick();
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, [target]);
 
-  if (target === null) return <span className="text-3xl sm:text-4xl font-heading font-bold text-primary">∞</span>;
+  if (target === null)
+    return (
+      <span className="text-3xl sm:text-4xl font-heading font-bold text-primary">
+        ∞
+      </span>
+    );
   return (
-    <span ref={ref} className="text-3xl sm:text-4xl font-heading font-bold text-primary">
-      {count}{suffix}
+    <span
+      ref={ref}
+      className="text-3xl sm:text-4xl font-heading font-bold text-primary"
+    >
+      {count}
+      {suffix}
     </span>
   );
 };
@@ -57,9 +72,7 @@ const AboutSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-primary text-sm font-body uppercase tracking-widest mb-3"
-        >
-          // ABOUT
-        </motion.p>
+        ></motion.p>
 
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           {/* Photo */}
@@ -99,11 +112,12 @@ const AboutSection = () => {
               About Me
             </h2>
             <p className="text-muted-foreground font-body leading-relaxed">
-              I'm Shubham, a full-stack developer based in Bangalore. I spent 1.5+ years at
-              Synccipher Innovations (TechAvtar) shipping end-to-end production features — from
-              Figma designs to deployed APIs. I specialize in MERN/Next.js, AI/LLM integrations,
-              and building systems that scale. I turn complex requirements into clean, performant
-              code.
+              I'm Shubham, a full-stack developer based in Bangalore. I spent
+              1.5+ years at Synccipher Innovations (TechAvtar) shipping
+              end-to-end production features — from Figma designs to deployed
+              APIs. I specialize in MERN/Next.js, AI/LLM integrations, and
+              building systems that scale. I turn complex requirements into
+              clean, performant code.
             </p>
           </motion.div>
         </div>
@@ -121,7 +135,9 @@ const AboutSection = () => {
               className="glass-card p-6 text-center"
             >
               <CountUp target={stat.value} suffix={stat.suffix} />
-              <p className="text-muted-foreground text-sm font-body mt-2">{stat.label}</p>
+              <p className="text-muted-foreground text-sm font-body mt-2">
+                {stat.label}
+              </p>
             </motion.div>
           ))}
         </div>
