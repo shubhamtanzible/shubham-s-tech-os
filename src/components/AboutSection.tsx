@@ -113,7 +113,7 @@ const AboutSection = () => {
             </h2>
             <p className="text-muted-foreground font-body leading-relaxed">
               I'm Shubham, a full-stack developer based in Bangalore. I spent
-              1.5+ years at Synccipher Innovations (TechAvtar) shipping
+              2 years at Synccipher Innovations (TechAvtar) shipping
               end-to-end production features — from Figma designs to deployed
               APIs. I specialize in MERN/Next.js, AI/LLM integrations, and
               building systems that scale. I turn complex requirements into

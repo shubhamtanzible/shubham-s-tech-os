@@ -95,8 +95,8 @@ const ExperienceSection = () => {
                   Synccipher Innovations Pvt Ltd (TechAvtar)
                 </h3>
                 <p className="text-muted-foreground text-sm font-body mt-1">
-                  Software Developer · Full-time · Bangalore, India · Jul 2024 –
-                  Jan 2026
+                  Software Developer · Full-time · Bangalore, India · March 2024 to
+                  March 2026
                 </p>
               </div>
 
