@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Linkedin, Github, Mail, ChevronDown } from "lucide-react";
 
 const DRIVE_LINK =
-  "https://drive.google.com/file/d/1wHOeNS1vT7AtVzN5f0Uf-47sndqSeYiS/view?usp=sharing";
+  "https://drive.google.com/file/d/1YAaML5jRZoMtE2jnKrv4A5871TIWeRaH/view?usp=sharing";
 const LINKEDIN = "https://www.linkedin.com/in/shubhampathak1/";
 
 const titles = [
@@ -74,9 +74,8 @@ const HeroSection = () => {
           transition={{ delay: 1 }}
           className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto mb-10 font-body"
         >
-          1.5+ years shipping production-grade web apps. I build fast, secure,
-          and intelligent products — from pixel-perfect UIs to LLM-powered
-          backends.
+          2 years shipping production-grade web apps. I build fast, secure, and
+          intelligent products — from pixel-perfect UIs to LLM-powered backends.
         </motion.p>
 
         <motion.div

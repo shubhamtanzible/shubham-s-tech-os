@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import profilePhoto from "@/assets/profile-photo.png";
 
 const stats = [
-  { value: 1.5, label: "Years Experience", suffix: "+" },
+  { value: 2, label: "Years Experience", suffix: "" },
   { value: 4, label: "Products Shipped", suffix: "+" },
   { value: 10, label: "Modules Built", suffix: "+" },
   { value: null, label: "Lines of Code", suffix: "", display: "∞" },
@@ -112,12 +112,12 @@ const AboutSection = () => {
               About Me
             </h2>
             <p className="text-muted-foreground font-body leading-relaxed">
-              I'm Shubham, a full-stack developer based in Bangalore. I spent
-              1.5+ years at Synccipher Innovations (TechAvtar) shipping
-              end-to-end production features — from Figma designs to deployed
-              APIs. I specialize in MERN/Next.js, AI/LLM integrations, and
-              building systems that scale. I turn complex requirements into
-              clean, performant code.
+              I'm Shubham, a full-stack developer based in Bangalore. I spent 2
+              years at Synccipher Innovations (TechAvtar) shipping end-to-end
+              production features — from Figma designs to deployed APIs. I
+              specialize in MERN/Next.js, AI/LLM integrations, and building
+              systems that scale. I turn complex requirements into clean,
+              performant code.
             </p>
           </motion.div>
         </div>
