@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import profilePhoto from "@/assets/profile-photo.png";
 
 const stats = [
-  { value: 1.5, label: "Years Experience", suffix: "+" },
+  { value: 2, label: "Years Experience", suffix: "" },
   { value: 4, label: "Products Shipped", suffix: "+" },
   { value: 10, label: "Modules Built", suffix: "+" },
   { value: null, label: "Lines of Code", suffix: "", display: "∞" },
