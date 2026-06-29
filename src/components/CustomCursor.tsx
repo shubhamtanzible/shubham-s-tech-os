@@ -1,20 +1,32 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const CustomCursor = () => {
-  const [pos, setPos] = useState({ x: -100, y: -100 });
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const move = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
+    let raf = 0;
+    let x = -100;
+    let y = -100;
+    const move = (e: MouseEvent) => {
+      x = e.clientX;
+      y = e.clientY;
+      if (!raf) {
+        raf = requestAnimationFrame(() => {
+          if (ref.current) {
+            ref.current.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+          }
+          raf = 0;
+        });
+      }
+    };
+    window.addEventListener("mousemove", move, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", move);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
-  return (
-    <div
-      className="custom-cursor hidden md:block"
-      style={{ left: pos.x, top: pos.y }}
-    />
-  );
+  return <div ref={ref} className="custom-cursor hidden md:block" />;
 };
 
 export default CustomCursor;
