@@ -75,14 +75,15 @@
   background-size: 30px 30px;
 }
 
-/* Glassmorphism card */
+/* Glassmorphism card — blur kept light to avoid jank over animated canvas */
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
 }
+
 
 /* Glitch effect */
 @keyframes glitch {
@@ -161,12 +162,13 @@
   background: hsl(var(--primary) / 0.5);
   box-shadow: 0 0 15px hsl(var(--primary) / 0.6);
   position: fixed;
+  top: 0;
+  left: 0;
   pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease-out, width 0.2s, height 0.2s;
-  mix-blend-mode: screen;
+  will-change: transform;
 }
+
 
 /* Border sweep animation */
 @keyframes border-sweep {

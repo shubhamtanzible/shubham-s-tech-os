@@ -26,18 +26,16 @@ const CountUp = ({
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
           started.current = true;
-          let start = 0;
-          const step = target / 40;
-          const tick = () => {
-            start += step;
-            if (start >= target) {
-              setCount(target);
-              return;
-            }
-            setCount(Math.round(start * 10) / 10);
-            requestAnimationFrame(tick);
+          const isInt = Number.isInteger(target);
+          const duration = 800;
+          const startTime = performance.now();
+          const tick = (now: number) => {
+            const t = Math.min((now - startTime) / duration, 1);
+            const v = target * t;
+            setCount(isInt ? Math.round(v) : Math.round(v * 10) / 10);
+            if (t < 1) requestAnimationFrame(tick);
           };
-          tick();
+          requestAnimationFrame(tick);
         }
       },
       { threshold: 0.5 },
@@ -45,6 +43,7 @@ const CountUp = ({
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, [target]);
+
 
   if (target === null)
     return (
